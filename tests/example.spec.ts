@@ -11,4 +11,9 @@ test.describe('navigation', () => {
     // Assertions use the expect API.
     await expect(page).toHaveURL('https://playwright.dev/')
   })
+
+  test('get started link', async ({ page }) => {
+  await page.getByRole('link', { name: 'Get started' }).click();
+  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+});
 })
